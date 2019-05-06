@@ -4,5 +4,8 @@
   "main": "index.js",
   "repository": "https://github.com/timothyshores/webauth-i-challenge.git",
   "author": "Timothy Shores <timothymshores@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "knex": "^0.16.5"
+  }
 }
