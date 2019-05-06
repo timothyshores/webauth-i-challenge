@@ -4,6 +4,7 @@ const cors = require('cors');
 const bcrypt = require('bcryptjs');
 
 const Users = require('./users/users-model.js');
+const validUsernamePassword = require('./auth/middleware');
 
 const server = express();
 
@@ -41,6 +42,14 @@ server.post('/api/login', (req, res) => {
         .catch(error => {
             res.status(500).json(error);
         });
+});
+
+server.get('/api/users', validUsernamePassword, (req, res) => {
+    Users.find()
+        .then(users => {
+            res.json(users);
+        })
+        .catch(err => res.send(err));
 });
 
 const port = process.env.PORT || 5000;
