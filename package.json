@@ -1,20 +1,21 @@
 {
-  "name": "webauth-i-challenge",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/timothyshores/webauth-i-challenge.git",
-  "author": "Timothy Shores <timothymshores@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "cors": "^2.8.5",
-    "express": "^4.16.4",
-    "helmet": "^3.18.0",
-    "knex": "^0.16.5",
-    "sqlite3": "^4.0.6"
-  },
-  "devDependencies": {
-    "jshint": "^2.10.2",
-    "nodemon": "^1.19.0"
-  }
+    "name": "webauth-i-challenge",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "server": "nodemon index.js",
+        "start": "node index.js"
+    },
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "cors": "^2.8.5",
+        "express": "^4.16.4",
+        "helmet": "^3.18.0",
+        "knex": "^0.16.5",
+        "sqlite3": "^4.0.6"
+    },
+    "devDependencies": {
+        "jshint": "^2.10.2",
+        "nodemon": "^1.19.0"
+    }
 }
