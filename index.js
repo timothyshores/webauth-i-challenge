@@ -9,6 +9,19 @@ const validUsernamePassword = require('./auth/middleware');
 
 const server = express();
 
+const sessionConfig = {
+    name: 'webauth-ii',
+    secret: 'using sessions and cookies project', // only our server knows this value for production store this in .env file
+    cookie: {
+        httpOnly: true, 
+        maxAge: 1000 * 60 * 10, 
+        secure: false, 
+    },
+    resave: false, 
+    saveUninitialized: true, 
+};
+
+server.use(session(sessionConfig));
 server.use(helmet());
 server.use(express.json());
 server.use(cors());
