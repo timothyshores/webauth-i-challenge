@@ -67,5 +67,15 @@ server.get('/api/users', validUsernamePassword, (req, res) => {
         .catch(err => res.send(err));
 });
 
+server.get('/api/logout', (req, res) => {
+    req.session
+        ? req.session.destroy(err => {
+            err
+                ? res.send('Error logging out')
+                : res.send('Logging out')
+        })
+        : res.send('Already logged out')
+});
+
 const port = process.env.PORT || 5000;
 server.listen(port, () => console.log(`\n** Running on port ${port} **\n`));
