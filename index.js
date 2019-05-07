@@ -13,12 +13,12 @@ const sessionConfig = {
     name: 'webauth-ii',
     secret: 'using sessions and cookies project', // only our server knows this value for production store this in .env file
     cookie: {
-        httpOnly: true, 
-        maxAge: 1000 * 60 * 10, 
-        secure: false, 
+        httpOnly: true,
+        maxAge: 1000 * 60 * 10,
+        secure: false,
     },
-    resave: false, 
-    saveUninitialized: true, 
+    resave: false,
+    saveUninitialized: true,
 };
 
 server.use(session(sessionConfig));
@@ -48,6 +48,7 @@ server.post('/api/login', (req, res) => {
         .first()
         .then(user => {
             if (user && bcrypt.compareSync(password, user.password)) {
+                req.session.username = user.username;
                 res.status(200).json({ message: `Logged in as user: ${user.username}` });
             } else {
                 res.status(401).json({ message: 'You shall not pass!' });
